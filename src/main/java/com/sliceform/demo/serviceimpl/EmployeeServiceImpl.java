@@ -6,6 +6,8 @@ import com.sliceform.demo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -21,5 +23,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee getEmp(Long id) {
         return repo.findById(id).get();
+    }
+
+
+    @Override
+    public List<Employee> getAll() {
+        return repo.findAll();
     }
 }

@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/emp")
 public class EmployeeController {
@@ -23,5 +25,11 @@ public class EmployeeController {
     public ResponseEntity<Employee> crete(@PathVariable Long id){
         return new  ResponseEntity<Employee>(service.getEmp(id),HttpStatus.OK);
     }
+
+    @GetMapping
+    public ResponseEntity<List<Employee>> getAll(){
+        return new  ResponseEntity<List<Employee>>(service.getAll(),HttpStatus.OK);
+    }
+
 
 }
