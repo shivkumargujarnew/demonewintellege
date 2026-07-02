@@ -1,11 +1,8 @@
 package com.sliceform.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Setter;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,5 +16,8 @@ public class Employee {
       private Double salary;
 
       private String city;
+
+      @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+      private List<Address> addresses;
 
 }
